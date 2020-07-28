@@ -1,11 +1,9 @@
-
 import requests 
 from bs4 import BeautifulSoup 
 import os
-  
+import argparse
 
-# specify the URL of the archive here 
-archive_url = "http://kumarmp3.com/?page_id=63/"
+
   
 def get_Audio_links(): 
       
@@ -32,37 +30,26 @@ def get_Audio_links():
 def download_Audio_series(video_links,directory): 
   
     for link in video_links: 
-  
-        '''iterate through all links in video_links 
-        and download them one by one'''
-          
-        # obtain filename by splitting url and getting  
-        # last string
-        print(link) 
         file_name = link.split('/')[-1]    
   
         print("Downloading file:%s"%file_name)
-
         os.system('wget '+link+' -P '+directory+'/')
-          
-        """ # create response object 
-        r = requests.get(link) 
-          
-        # download started 
-        with open(file_name, 'wb') as f: 
-            f.write(r.content)  """
-          
         print("%s downloaded!\n"%file_name) 
   
     print("All videos downloaded!")
     return
   
   
-if __name__ == "__main__": 
-  
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-u", "--url", help="for selecting the bulk audio web url")
+args = parser.parse_args()
+if args.url:
+    # specify the URL of the archive here 
+    archive_url = args.url
     # getting all video links 
     video_links,directory = get_Audio_links() 
-  
+
     # download all videos 
     download_Audio_series(video_links,directory) 
      
