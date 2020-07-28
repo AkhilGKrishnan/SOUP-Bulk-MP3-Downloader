@@ -19,12 +19,15 @@ SOUP-Bulk-File-Downloader is a BeautifulSoup based bulk file downloader. You can
 ```
 python bulkydownload.py -h
 
-usage: bulkydownload.py [-h] [-u URL]
+usage: bulkydownload.py [-h] -u URL [-p PATH] -e EXTENSION
 
 optional arguments:
-  -h, --help         show this help message and exit
-  -u URL, --url URL  for selecting the bulk audio web url
+  -h, --help            show this help message and exit
+  -u URL, --url URL     for choosing the web url for downloadind the files
+  -p PATH, --path PATH  folder path for storing the downloaded files
+  -e EXTENSION, --extension EXTENSION
+                        for choosing the file extension
 ```
 ### Example
 
-`python bulkydownload.py -u <bulk-audio-url>`
+`python bulkydownload.py -u <bulk-audio-url> -e <file-extension>`
