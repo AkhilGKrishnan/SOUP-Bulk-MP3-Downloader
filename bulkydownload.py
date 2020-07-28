@@ -23,7 +23,7 @@ def get_Audio_links():
         os.system('mkdir '+directory+'') 
         
     # filter the link sending with .mp4 
-    file_links = [link['href'] for link in links if link['href'].endswith('mp3')] 
+    file_links = [link['href'] for link in links if link['href'].endswith(args.extension)] 
     return file_links,directory 
   
   
@@ -44,8 +44,9 @@ def download_file_series(file_links,directory):
 parser = argparse.ArgumentParser()
 parser.add_argument("-u", "--url", help="for choosing the web url for downloadind the files")
 parser.add_argument("-p", "--path", help="folder path for storing the downloaded files")
+parser.add_argument("-e", "--extension", help="for choosing the file extension")
 args = parser.parse_args()
-if args.url:
+if args.url and args.extension:
     # specify the URL of the archive here 
     archive_url = args.url
     # getting all video links 
@@ -53,5 +54,5 @@ if args.url:
     # download all videos 
     download_file_series(file_links,directory) 
 else:
-    print("enter the web url")    
+    print("enter the web url and file extension properly")    
      
