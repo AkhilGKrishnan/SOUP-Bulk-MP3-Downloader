@@ -1,7 +1,7 @@
 # SOUP-Bulk-File-Downloader
 
 [![Generic badge](https://img.shields.io/badge/completed-no-<COLOR>.svg)](https://shields.io/)  [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/) <br>
-SOUP-Bulk-File-Downloader is a BeautifulSoup based bulk file downloader. You can download bulk files by a single run.
+SOUP-Bulk-File-Downloader is a BeautifulSoup based bulk file downloader. You can download bulk files from the web by a single run.
 
 ## Requirements
 
