@@ -7,7 +7,7 @@ import os
 # specify the URL of the archive here 
 archive_url = "http://kumarmp3.com/?page_id=63/"
   
-def get_video_links(): 
+def get_Audio_links(): 
       
     # create response object 
     r = requests.get(archive_url) 
@@ -29,7 +29,7 @@ def get_video_links():
     return video_links,directory 
   
   
-def download_video_series(video_links,directory): 
+def download_Audio_series(video_links,directory): 
   
     for link in video_links: 
   
@@ -61,8 +61,8 @@ def download_video_series(video_links,directory):
 if __name__ == "__main__": 
   
     # getting all video links 
-    video_links,directory = get_video_links() 
+    video_links,directory = get_Audio_links() 
   
     # download all videos 
-    download_video_series(video_links,directory) 
+    download_Audio_series(video_links,directory) 
      
