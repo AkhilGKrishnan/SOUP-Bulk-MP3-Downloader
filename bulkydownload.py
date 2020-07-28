@@ -5,10 +5,9 @@ import argparse
 
 
   
-def get_Audio_links(): 
+def get_file_links(): 
       
-    # create response object 
-    r = requests.get(archive_url) 
+    
     # create beautiful-soup object 
     soup = BeautifulSoup(r.content,'html5lib') 
     # find all links on web-page 
@@ -42,17 +41,19 @@ def download_file_series(file_links,directory):
   
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-u", "--url", help="for choosing the web url for downloadind the files")
+parser.add_argument("-u", "--url", help="for choosing the web url for downloadind the files", required=True)
 parser.add_argument("-p", "--path", help="folder path for storing the downloaded files")
-parser.add_argument("-e", "--extension", help="for choosing the file extension")
+parser.add_argument("-e", "--extension", help="for choosing the file extension", required=True)
 args = parser.parse_args()
-if args.url and args.extension:
-    # specify the URL of the archive here 
-    archive_url = args.url
+
+# create response object 
+r = requests.get(args.url) 
+
+if r.status_code == 200:
     # getting all video links 
-    file_links,directory = get_Audio_links() 
+    file_links,directory = get_file_links() 
     # download all videos 
     download_file_series(file_links,directory) 
 else:
-    print("enter the web url and file extension properly")    
+    print("Please enter the correct web url")  
      
