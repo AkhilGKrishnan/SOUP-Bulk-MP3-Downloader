@@ -35,7 +35,7 @@ def download_file_series(file_links,directory):
         os.system('wget '+link+' -P '+directory+'/')
         print("%s downloaded!\n"%file_name) 
   
-    print("All videos downloaded!")
+    print("All Files downloaded!")
     return
   
   
