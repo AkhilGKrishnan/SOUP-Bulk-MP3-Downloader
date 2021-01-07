@@ -28,6 +28,16 @@ optional arguments:
   -e EXTENSION, --extension EXTENSION
                         for choosing the file extension
 ```
+
+## Containerized
+```
+docker build -t pythonsoup .
+docker run -d -t pythonsoup --name
+docker run -d --name soupcontainer -t pythonsoup
+docker exec -it soupcontainer sh
+python bulkydownload.py -h
+```
+
 ### Example
 
 `python bulkydownload.py -u <bulk-audio-url> -e <file-extension>`
